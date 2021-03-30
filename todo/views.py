@@ -5,12 +5,7 @@ from django.template import loader
 from .models import User, TodoText
 
 
-def todo(request):
-    user_list = User.objects.all()
-    template = loader.get_template('index.html')
-    context = {
-        'users': user_list,
-    }
-    return HttpResponse(template.render(context, request))
+def home(request):
+    return render(request, 'todo/index.html')
 
 
