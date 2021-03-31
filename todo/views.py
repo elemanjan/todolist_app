@@ -7,6 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.utils import timezone
 from django.http import HttpResponseRedirect
 
+
 def home(request):
     todo_items = TodoText.objects.all().order_by('-date')
     return render(request, 'todo/index.html', {
@@ -22,4 +23,10 @@ def add_todo(request):
     print(todo_text)
     length_todos = TodoText.objects.all().count()
     TodoText.objects.create(date=add_date, todo_text=todo_text)
+    return HttpResponseRedirect('/')
+
+
+@csrf_exempt
+def todo_delete(request, todo_id):
+    TodoText.objects.get(id=todo_id).delete()
     return HttpResponseRedirect('/')

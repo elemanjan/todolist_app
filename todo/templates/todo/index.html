@@ -5,7 +5,7 @@
     <div class="row mt-3">
         <div class="col"></div>
         <div class="col-10">
-            <div class="d-flex align-items-center p-2 todo_text">
+            <div class="d-flex align-items-center p-2 todo_caption">
                 <div class="col-1">Task</div>
                 <div class="col-9"></div>
                 <div class="col-1">Date</div>
@@ -15,20 +15,25 @@
         </div>
         <div class="col"></div>
     </div>
-    <div class="row mt-2">
+    <div class="row mt-4">
         <div class="col"></div>
         <div class="col-10">
-             {% for todo_item in todo_items %}
-            <div class="d-flex align-items-center p-2 mb-1 todo_text">
-
-
-                    <div class="col-1"> {{ todo_item.id }}</div>
+            {% for todo_item in todo_items %}
+                <div class="d-flex align-items-center p-2 mb-1 todo_text">
+                    <div class="col-1">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+                        {{ todo_item.id }}
+                    </div>
                     <div class="col-9">{{ todo_item.todo_text }}</div>
                     <div class="col-1">{{ todo_item.date }}</div>
-                    <div class="col-1"><a href=""><i class="bi bi-trash"></i></a></div>
+                    <div class="col-1">
+                        <a href="todo_delete/{{ todo_item.id }}/">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                    </div>
 
-            </div>
-                {% endfor %}
+                </div>
+            {% endfor %}
         </div>
         <div class="col"></div>
     </div>
