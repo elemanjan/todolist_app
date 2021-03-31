@@ -7,7 +7,7 @@ body{
 .container.content {
     background-color: snow;
     width: 80%;
-    height: 700px;
+    height: auto;
     margin-top: 100px;
     margin-bottom: 40px;
     border-radius: 5px;
@@ -31,4 +31,10 @@ table.caption {
     height: 40px;
     border: 1px solid #909090 !important;
     border-radius: 10px;
+}
+
+div.todo_text {
+    height: auto;
+    border: 1px solid #909090 !important;
+    border-radius: 5px;
 }

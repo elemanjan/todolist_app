@@ -22,11 +22,11 @@
         </div>
         <div class="col-10">
 
-            <form class="row align-items-center">
+            <form action="add_todo/" method="post" class="row align-items-center">
                 <div class="col-10">
                     <label class="visually-hidden" for="inlineFormInputGroupUsername">Username</label>
                     <div class="input-group">
-                        <input type="text" class="form-control input-lg" id="inlineFormInputGroupUsername"
+                        <input type="text" name="todo_text" class="form-control input-lg" id="inlineFormInputGroupUsername"
                                placeholder="Enter new task...">
                     </div>
                 </div>
@@ -43,22 +43,7 @@
         </div>
     </div>
 
-    <div class="row mt-4">
-        <div class="col"></div>
-        <div class="col-10">
-            <table class="table caption">
-                <thead>
-                <tr class="d-flex">
-                    <th class="col-1">Task <i class="bi bi-chevron-down"></i> </th>
-                    <th class="col-9"></th>
-                    <th class="col-1">Date</th>
-                    <th class="col-1"></th>
-                </tr>
-                </thead>
-            </table>
-        </div>
-        <div class="col"></div>
-    </div>
+
 
 
 {% block content %}

@@ -21,5 +21,6 @@ from todo import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.home, name='home'),
+    path(r'add_todo/', views.add_todo),
 
 ]

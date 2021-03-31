@@ -9,7 +9,6 @@ class User(models.Model):
 
 
 class TodoText(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
     todo_text = models.TextField(max_length=500, null=True)
     date = models.DateTimeField()
 
