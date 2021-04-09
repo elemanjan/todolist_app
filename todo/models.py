@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 
 class User(models.Model):
@@ -10,7 +11,6 @@ class User(models.Model):
 
 class TodoText(models.Model):
     todo_text = models.TextField(max_length=500, null=True)
-    date = models.DateTimeField()
-
-
-
+    date = models.DateField(default=timezone.now().strftime("%Y-%m-%d"))
+    due = models.DateField(default=timezone.now().strftime("%Y-%m-%d"))
+    status = models.BooleanField(default=False)
