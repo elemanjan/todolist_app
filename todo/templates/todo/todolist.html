@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="text-center">TODO LIST APP</h1>
+    <div class="row align-items-center mt-5">
+        <div class="col">
+        </div>
+        <div class="col-10">
+            <form action="add_todo/" method="post" class="row align-items-center">
+                {% csrf_token %}
+                <div class="col-9">
+                    <label class="visually-hidden" for="inlineFormInputGroupUsername">Username</label>
+                    <div class="input-group">
+                        <input type="text" name="todo_title" class="form-control input-lg"
+                               id="todo_title"
+                               placeholder="Enter new task...">
+                    </div>
+                </div>
+
+                <div class="col-3">
+                    <input class="form-control date" type="date" value="" id="due_on" name="due_on">
+                    <button type="submit" class="btn btn-dark add shadow-lg rounded">ADD</button>
+                </div>
+            </form>
+
+        </div>
+        <div class="col">
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col"></div>
+        <div class="col-10">
+            <div class="d-flex align-items-center p-2 todo_caption">
+                <div class="col-6">Task</div>
+                <div class="col-2">Due on</div>
+                <div class="col-2">Created</div>
+                <div class="col-1">Mark</div>
+                <div class="col-1"></div>
+
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+    <div class="row mt-4">
+        <div class="col"></div>
+        <div class="col-10">
+            {% for todo_item in todo_items %}
+                {% if todo_item.is_done == True %}
+
+                    <style>
+
+                    </style>
+
+                {% endif %}
+
+                <div class="d-flex align-items-center p-2 mb-1 todo_text">
+                    <div class="col-6">
+                        <a data-bs-toggle="collapse" href="#collapseExample{{ todo_item.id }}" role="button"
+                           aria-expanded="false"
+                           aria-controls="collapseExample" class="todo_title">
+                            {{ todo_item.title }}
+                        </a>
+                    </div>
+                    <div class="col-2">{{ todo_item.due }}</div>
+                    <div class="col-2">{{ todo_item.date }}</div>
+                    <div class="col-1">
+                        <a href="/done/{{ todo_item.id }}/"> Done </a>
+                    </div>
+                    <div class="col-1">
+                        <a href="todo_delete/{{ todo_item.id }}/" class="float-end">
+                            <i class="bi bi-trash"></i>
+                        </a>
+                    </div>
+                </div>
+                <form action="todo_update/{{ todo_item.id }}/" method="post">
+                    {% csrf_token %}
+                    <div class="collapse" id="collapseExample{{ todo_item.id }}">
+                        <div class="card card-body">
+                            <label for="todo_title" class="form-label"><b> ToDo Title: </b></label>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" id="todo_title" aria-describedby="basic-addon3"
+                                       value="{{ todo_item.title }}" name="todo_title">
+                            </div>
+                            <label for="todo_desc" class="form-label"> <b> ToDo Description: </b></label>
+                            <div class="input-group mb-2">
+                            <textarea class="form-control" id="todo_desc" name="todo_desc"
+                                      aria-label="With textarea">{{ todo_item.description }}
+                            </textarea>
+                            </div>
+                            <label for="due_on" class="form-label"> <b> Due on: </b></label>
+                            <div class="input-group mb-2">
+                                <input class="form-control date" type="date" value="" id="due_on" name="due_on">
+                            </div>
+                            <div class="input-group mt-3">
+                                <button type="submit" class="btn btn-success">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            {% endfor %}
+        </div>
+        <div class="col"></div>
+    </div>
+
+{% endblock content %}

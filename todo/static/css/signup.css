@@ -7,24 +7,11 @@ body {
     font-weight: 400 !important;
 }
 
-a {
-    text-decoration: none !important;
-    color: #198754 !important;
-}
-
-a:active {
-    text-decoration: none;
-}
-
-a.todo_title {
-    font-weight: 500 !important;
-}
-
 .container.content {
     background-color: snow;
     width: 80%;
     height: auto;
-    margin-top: 100px;
+    margin-top: 20px;
     margin-bottom: 40px;
     border-radius: 5px;
 }
@@ -33,20 +20,13 @@ h1 {
     font-weight: 600 !important;
 }
 
-.btn.btn-dark.add {
-    background-color: #F7B605 !important;
-    border-color: #F7B605 !important;
-    margin-bottom: 2px;
-    width: 70px;
-}
-
 .btn.btn-outline-secondary {
     display: inline !important;
 }
 
 a.login {
     width: 80.5px;
-    color: #fff !important;
+    color: #fff;
     box-shadow: -2px 14px 24px -14px rgba(0, 0, 0, 0.83);
 
 }
@@ -61,28 +41,6 @@ a.btn.signup {
     border-color: #198754;
 }
 
-div.todo_caption {
-    /*padding: 0;*/
-    height: 40px;
-    border: 1px solid #F7B605 !important;
-    border-radius: 5px;
-    background-color: #F7B605;
-    color: snow;
-    box-shadow: -2px 14px 24px -14px rgba(0, 0, 0, 0.83);
-}
-
-.bi.bi-trash {
-    color: #F7B605;
-    font-size: 1.5rem;
-}
-
-div.todo_text {
-    height: auto;
-    border: 1px solid #909090 !important;
-    border-radius: 5px;
-}
-
-input#due_on {
-    display: inline !important;
-    width: 170px;
+div.col-12.text-right {
+    padding-right: 0 !important;
 }

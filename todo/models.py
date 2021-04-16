@@ -1,16 +1,15 @@
 from django.db import models
 from django.utils import timezone
-
-
-class User(models.Model):
-    username = models.CharField(max_length=20, unique=True)
-    password = models.CharField(max_length=20)
-    first_name = models.CharField(max_length=20)
-    second_name = models.CharField(max_length=20)
+from django.contrib.auth.models import User
 
 
 class TodoText(models.Model):
-    todo_text = models.TextField(max_length=500, null=True)
-    date = models.DateField(default=timezone.now().strftime("%Y-%m-%d"))
-    due = models.DateField(default=timezone.now().strftime("%Y-%m-%d"))
-    status = models.BooleanField(default=False)
+    title = models.CharField("Заголовок", max_length=100)
+    description = models.TextField("Описание", null=True)
+    date = models.DateField("Дата создания", default=timezone.now, blank=True, null=True)
+    due = models.DateField("Дата выполнения", blank=True, null=True)
+    is_done = models.BooleanField("Статус выполнения", default=False, null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title
