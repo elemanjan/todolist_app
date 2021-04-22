@@ -16,9 +16,10 @@ a:active {
     text-decoration: none;
 }
 
-a.todo_title {
+a.todo_title.done {
     font-weight: 500 !important;
 }
+
 
 .container.content {
     background-color: snow;

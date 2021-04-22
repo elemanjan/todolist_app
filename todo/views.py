@@ -1,3 +1,4 @@
+import requests
 from django.contrib import messages
 from django.contrib.auth import authenticate, logout
 from django.contrib.auth import login as auth_login
@@ -85,3 +86,4 @@ def done(request, pk):
     task.is_done = True
     task.save()
     return HttpResponseRedirect('/')
+
